@@ -2,8 +2,8 @@
 <html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Palak Verma 💗 </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Palak Verma 💗</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -21,12 +21,12 @@
                         }
                     },
                     animation: {
-                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                        'fade-in': 'fadeIn 0.4s ease-out forwards',
                         'card-pulse': 'cardGlow 2s infinite alternate',
                     },
                     keyframes: {
                         fadeIn: {
-                            '0%': { opacity: '0', transform: 'scale(0.95)' },
+                            '0%': { opacity: '0', transform: 'scale(0.96)' },
                             '100%': { opacity: '1', transform: 'scale(1)' },
                         },
                         cardGlow: {
@@ -49,120 +49,117 @@
             background-color: #141414;
             color: #ffffff;
             overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
         }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .scroll-container {
             scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
         }
         .netflix-card {
-            transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
+            transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
         }
-        .netflix-card:hover {
-            transform: scale(1.06) translateY(-6px);
-            z-index: 30;
-            box-shadow: 0 18px 30px rgba(0,0,0,0.9), 0 0 15px rgba(229, 9, 20, 0.3);
-        }
-        .slider-btn {
-            opacity: 0;
-            transition: opacity 0.3s ease, background-color 0.2s ease, transform 0.2s ease;
-        }
-        .slider-group:hover .slider-btn {
-            opacity: 1;
+        @media (hover: hover) and (pointer: fine) {
+            .netflix-card:hover {
+                transform: scale(1.05) translateY(-4px);
+                z-index: 30;
+                box-shadow: 0 14px 28px rgba(0,0,0,0.9), 0 0 16px rgba(229, 9, 20, 0.35);
+            }
+            .slider-btn {
+                opacity: 0;
+                transition: opacity 0.3s ease, background-color 0.2s ease;
+            }
+            .slider-group:hover .slider-btn {
+                opacity: 1;
+            }
+            .video-card .play-overlay {
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+            .video-card:hover .play-overlay {
+                opacity: 1;
+            }
         }
         .profile-card:hover .profile-avatar-box {
             border-color: #ffffff;
-            transform: scale(1.06);
-        }
-        .video-card .play-overlay {
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .video-card:hover .play-overlay {
-            opacity: 1;
+            transform: scale(1.05);
         }
     </style>
 </head>
 <body class="bg-netflix-black text-white selection:bg-netflix-red selection:text-white">
 
-    <!-- PROFILE SCREEN -->
+    <!-- PROFILE GATE SCREEN -->
     <div id="intro-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-netflix-black px-4 transition-all duration-700">
-        <div class="absolute top-8 left-8 md:left-14">
-            <span class="text-netflix-red font-black text-3xl md:text-4xl tracking-tighter cursor-pointer select-none">PALAKFLIX</span>
+        <div class="absolute top-6 left-6 md:top-8 md:left-14">
+            <span class="text-netflix-red font-black text-2xl md:text-4xl tracking-tighter select-none">PALAKFLIX</span>
         </div>
 
-        <div class="text-center max-w-xl animate-fade-in">
-            <h1 class="text-3xl md:text-5xl font-medium tracking-tight text-white mb-8 md:mb-12">KON DEKH RAHA HAI HAHHHH ?</h1>
+        <div class="text-center w-full max-w-md md:max-w-xl animate-fade-in flex flex-col items-center">
+            <h1 class="text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tight text-white mb-6 md:mb-10 px-2">KON DEKH RAHA HAI HAHHHH ?</h1>
             
             <div class="flex items-center justify-center">
                 <div id="profile-btn" onclick="selectProfile()" class="profile-card group flex flex-col items-center cursor-pointer">
-                    <div id="profile-avatar-container" class="profile-avatar-box w-36 h-36 md:w-44 md:h-44 rounded-md border-2 border-transparent shadow-2xl transition duration-300 relative overflow-hidden bg-zinc-800">
-                        <img id="intro-profile-img" src="" alt="Yash's Heart" class="w-full h-full object-cover object-center">
+                    <div id="profile-avatar-container" class="profile-avatar-box w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 rounded-md border-2 border-transparent shadow-2xl transition duration-300 relative overflow-hidden bg-zinc-800">
+                        <img id="intro-profile-img" src="37.jpg" alt="Profile" class="w-full h-full object-cover object-center" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400'">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                     </div>
-                    <span class="mt-4 text-zinc-400 group-hover:text-white text-base md:text-xl font-medium tracking-wide transition">Palakkkkkkkkkkk</span>
+                    <span class="mt-3 md:mt-4 text-zinc-400 group-hover:text-white text-sm sm:text-base md:text-xl font-medium tracking-wide transition">Palakkkkkkkkkkk</span>
                 </div>
-            </div>
-
-            <div class="mt-12">
-                <button onclick="selectProfile()" class="border border-zinc-600 text-zinc-400 hover:text-white hover:border-zinc-300 text-xs md:text-sm font-semibold tracking-widest uppercase px-6 py-2 transition duration-200">
-                    Manage Profiles
-                </button>
             </div>
         </div>
     </div>
 
     <!-- NAVBAR -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-500 bg-gradient-to-b from-black/90 via-black/50 to-transparent px-4 md:px-12 py-4 flex items-center justify-between">
-        <div class="flex items-center space-x-8">
-            <span class="text-netflix-red font-black text-2xl md:text-3xl tracking-tighter cursor-pointer">PALAKFLIX</span>
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-500 bg-gradient-to-b from-black/95 via-black/60 to-transparent px-4 sm:px-8 md:px-14 py-3 md:py-4 flex items-center justify-between">
+        <div class="flex items-center space-x-6 md:space-x-8">
+            <span class="text-netflix-red font-black text-xl md:text-3xl tracking-tighter cursor-pointer">PALAKFLIX</span>
             <div class="hidden md:flex space-x-6 text-sm text-zinc-300 font-medium">
                 <a href="#" class="hover:text-white transition">Home</a>
-                <a href="#episodes-section" class="hover:text-white transition"> Photo EP </a>
-                <a href="#videos-section" class="hover:text-white transition"> Video Series </a>
-                <a href="#finale-section" class="hover:text-white transition">KUCH KHAS HAI TERE LIYE </a>
+                <a href="#episodes-section" class="hover:text-white transition">Photo EP</a>
+                <a href="#videos-section" class="hover:text-white transition">Video Series</a>
+                <a href="#finale-section" class="hover:text-white transition">KUCH KHAS HAI TERE LIYE</a>
             </div>
         </div>
-        <div class="flex items-center space-x-4">
-            <div class="flex items-center space-x-2.5 bg-zinc-900/80 px-2.5 py-1.5 rounded-full border border-zinc-800">
-                <div data-nav-avatar class="rounded-full overflow-hidden flex items-center justify-center bg-zinc-800 border border-zinc-700 shrink-0 w-8 h-8">
-                    <img id="navbar-profile-img" src="" alt="Avatar" class="w-full h-full object-cover">
+        <div class="flex items-center space-x-3">
+            <div class="flex items-center space-x-2 bg-zinc-900/80 px-2 py-1 md:px-2.5 md:py-1.5 rounded-full border border-zinc-800">
+                <div data-nav-avatar class="rounded-full overflow-hidden flex items-center justify-center bg-zinc-800 border border-zinc-700 shrink-0 w-6 h-6 md:w-8 md:h-8">
+                    <img id="navbar-profile-img" src="37.jpg" alt="Avatar" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150'">
                 </div>
-                <span class="text-xs font-semibold pr-1 text-zinc-200">Palakkkkkkkkkkk</span>
+                <span class="text-[11px] md:text-xs font-semibold pr-1 text-zinc-200 truncate max-w-[85px] sm:max-w-none">Palakkkkk</span>
             </div>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <header id="hero-section" class="relative w-full h-[85vh] min-h-[580px] flex items-center overflow-hidden">
+    <header id="hero-section" class="relative w-full min-h-[70vh] sm:min-h-[80vh] md:min-h-[85vh] flex items-end md:items-center pb-10 md:pb-0 overflow-hidden pt-20">
         <div class="absolute inset-0 z-0">
-            <img id="hero-bg-img" src="" alt="Palak Verma" class="w-full h-full object-cover object-top md:object-[center_20%]">
-            <div class="absolute inset-0 bg-gradient-to-r from-netflix-black via-netflix-black/85 md:via-netflix-black/60 to-transparent w-full md:w-3/4"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-netflix-black via-transparent to-netflix-black/70"></div>
+            <img id="hero-bg-img" src="hero.jpg" alt="Palak Verma" class="w-full h-full object-cover object-top md:object-[center_20%]" onerror="this.src='https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=1600'">
+            <div class="absolute inset-0 bg-gradient-to-t from-netflix-black via-netflix-black/75 md:via-netflix-black/55 to-transparent md:bg-gradient-to-r md:from-netflix-black md:via-netflix-black/85 md:to-transparent"></div>
         </div>
-        <div class="relative z-10 px-6 md:px-16 max-w-2xl mt-16">
-            <div class="flex items-center space-x-2 mb-3">
-                <span class="bg-netflix-red text-white text-xs font-black px-2 py-0.5 rounded tracking-widest uppercase">SUPER HIT CHE TU </span>
-                <span class="text-zinc-400 text-sm tracking-widest font-semibold uppercase">A NETFLIX ORIGINAL BIRTHDAY SERIES</span>
+        <div class="relative z-10 px-4 sm:px-8 md:px-16 max-w-2xl mt-8 md:mt-12">
+            <div class="flex flex-wrap items-center gap-2 mb-2 md:mb-3">
+                <span class="bg-netflix-red text-white text-[10px] md:text-xs font-black px-2 py-0.5 rounded tracking-widest uppercase">SUPER HIT CHE TU</span>
+                <span class="text-zinc-400 text-xs md:text-sm tracking-widest font-semibold uppercase">BIRTHDAY SPECIAL</span>
             </div>
-            <h1 class="text-4xl md:text-7xl font-black tracking-tight mb-4 drop-shadow-lg leading-none">PALAK VERMA</h1>
-            <div class="flex items-center space-x-3 text-xs md:text-sm text-zinc-300 mb-4 font-medium">
-                <span class="text-green-400 font-bold">100% MASTIKHOR </span>
+            <h1 class="text-3xl sm:text-5xl md:text-7xl font-black tracking-tight mb-2 md:mb-4 drop-shadow-lg leading-tight">PALAK VERMA</h1>
+            <div class="flex flex-wrap items-center gap-2 sm:gap-3 text-xs md:text-sm text-zinc-300 mb-3 md:mb-4 font-medium">
+                <span class="text-green-400 font-bold">100% MASTIKHOR</span>
                 <span>2026</span>
                 <span class="border border-zinc-600 px-1.5 py-0.2 text-[10px] rounded">TV-MA</span>
-                <span>44 Episodes</span>
+                <span>43 Episodes</span>
                 <span class="bg-zinc-800 px-1.5 py-0.2 text-[10px] rounded">Ultra HD 4K</span>
             </div>
-            <p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-6 drop-shadow max-w-xl">
-               MENE TRY KIYA HAI APUN DONO KE JITNE VIDEO'S AND PHOTO'S LEGALLY DEKH SAKHE VO VALE ADD KARU BUSS
+            <p class="text-zinc-300 text-xs sm:text-sm md:text-base leading-relaxed mb-6 drop-shadow line-clamp-3 md:line-clamp-none max-w-xl">
+                MENE TRY KIYA HAI APUN DONO KE JITNE VIDEO'S AND PHOTO'S LEGALLY DEKH SAKHE VO VALE ADD KARU BUSS
             </p>
-            <div class="flex items-center space-x-4">
-                <button onclick="scrollToEpisodes()" class="bg-white hover:bg-zinc-200 text-black font-bold px-6 md:px-8 py-3 rounded flex items-center space-x-3 transition shadow-lg transform hover:scale-105 active:scale-95">
-                    <i class="fa-solid fa-play text-black"></i>
+            <div class="flex flex-wrap items-center gap-3">
+                <button onclick="scrollToEpisodes()" class="bg-white hover:bg-zinc-200 text-black font-bold px-5 md:px-8 py-2.5 md:py-3 rounded text-sm md:text-base flex items-center space-x-2 md:space-x-3 transition shadow-lg active:scale-95">
+                    <i class="fa-solid fa-play text-black text-xs md:text-sm"></i>
                     <span>Play Episode 1</span>
                 </button>
-                <button onclick="triggerMyList()" class="bg-zinc-700/80 hover:bg-zinc-600/80 text-white font-semibold px-6 md:px-8 py-3 rounded backdrop-blur flex items-center space-x-3 transition border border-zinc-400/30">
-                    <i id="my-list-icon" class="fa-solid fa-plus"></i>
+                <button onclick="triggerMyList()" class="bg-zinc-700/80 hover:bg-zinc-600/80 text-white font-semibold px-5 md:px-8 py-2.5 md:py-3 rounded text-sm md:text-base backdrop-blur flex items-center space-x-2 md:space-x-3 transition border border-zinc-400/30 active:scale-95">
+                    <i id="my-list-icon" class="fa-solid fa-plus text-xs md:text-sm"></i>
                     <span>My List</span>
                 </button>
             </div>
@@ -170,72 +167,81 @@
     </header>
 
     <!-- CONTENT SECTIONS -->
-    <main class="relative z-20 pb-24 -mt-20 md:-mt-28 space-y-12">
+    <main class="relative z-20 pb-16 md:pb-24 pt-4 md:pt-0 space-y-8 md:space-y-12">
 
-        <!-- 44 EPISODES SECTION -->
-        <section id="episodes-section" class="px-6 md:px-16 slider-group relative">
-            <div class="flex items-center justify-between mb-4">
-                <div class="flex items-baseline space-x-3">
-                    <h2 class="text-xl md:text-2xl font-bold tracking-wide">Season 1: Complete Collection</h2>
-                    <span class="text-xs text-netflix-red font-semibold">43 Episodes</span>
+        <!-- 43 EPISODES PHOTO SECTION -->
+        <section id="episodes-section" class="px-4 sm:px-8 md:px-16 slider-group relative">
+            <div class="flex items-center justify-between mb-3 md:mb-4">
+                <div class="flex items-baseline space-x-2 md:space-x-3">
+                    <h2 class="text-lg md:text-2xl font-bold tracking-wide">Season 1: Complete Collection</h2>
+                    <span class="text-[11px] md:text-xs text-netflix-red font-semibold">43 Episodes</span>
                 </div>
-                <span class="text-xs text-zinc-400 hidden md:inline"></span>
             </div>
 
-            <div class="relative">
-                <button onclick="slideRow('episodes-container', -650)" class="slider-btn absolute left-0 top-1/2 -translate-y-1/2 z-40 bg-black/75 hover:bg-netflix-red text-white w-11 h-28 flex items-center justify-center rounded-r-lg border-y border-r border-zinc-700 shadow-2xl backdrop-blur">
-                    <i class="fa-solid fa-chevron-left text-lg"></i>
+            <div class="relative group">
+                <button onclick="slideRow('episodes-container', -450)" class="slider-btn hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-40 bg-black/75 hover:bg-netflix-red text-white w-10 h-24 items-center justify-center rounded-r-lg border-y border-r border-zinc-700 shadow-2xl backdrop-blur">
+                    <i class="fa-solid fa-chevron-left text-base"></i>
                 </button>
                 
-                <div id="episodes-container" class="scroll-container flex space-x-4 overflow-x-auto no-scrollbar pb-6 pt-2"></div>
+                <div id="episodes-container" class="scroll-container flex space-x-3 md:space-x-4 overflow-x-auto no-scrollbar pb-4 pt-1 snap-x snap-mandatory"></div>
                 
-                <button onclick="slideRow('episodes-container', 650)" class="slider-btn absolute right-0 top-1/2 -translate-y-1/2 z-40 bg-black/75 hover:bg-netflix-red text-white w-11 h-28 flex items-center justify-center rounded-l-lg border-y border-l border-zinc-700 shadow-2xl backdrop-blur">
-                    <i class="fa-solid fa-chevron-right text-lg"></i>
+                <button onclick="slideRow('episodes-container', 450)" class="slider-btn hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-40 bg-black/75 hover:bg-netflix-red text-white w-10 h-24 items-center justify-center rounded-l-lg border-y border-l border-zinc-700 shadow-2xl backdrop-blur">
+                    <i class="fa-solid fa-chevron-right text-base"></i>
                 </button>
             </div>
         </section>
 
-        <!-- 36 VIDEOS SECTION -->
-        <section id="videos-section" class="px-6 md:px-16 slider-group relative">
-            <div class="flex items-center justify-between mb-4">
+        <!-- VIDEO SERIES SECTION -->
+        <section id="videos-section" class="px-4 sm:px-8 md:px-16 slider-group relative">
+            <div class="flex items-center justify-between mb-3 md:mb-4">
                 <div>
-                    <h2 class="text-xl md:text-2xl font-bold tracking-wide">DEADLY DUO 😂</h2>
-                    <p class="text-xs text-zinc-400 mt-0.5">KUCH BHI KO BTS VIDEO BOLNA </p>
+                    <h2 class="text-lg md:text-2xl font-bold tracking-wide">DEADLY DUO 😂</h2>
+                    <p class="text-[11px] md:text-xs text-zinc-400 mt-0.5">KUCH BHI KO BTS VIDEO BOLNA</p>
                 </div>
-                <span class="text-xs text-netflix-red font-semibold">YE TOH KUCH NHI HAI...</span>
+                <span class="text-[11px] md:text-xs text-netflix-red font-semibold">YE TOH KUCH NHI HAI...</span>
             </div>
 
-            <div class="relative">
-                <button onclick="slideRow('videos-container', -650)" class="slider-btn absolute left-0 top-1/2 -translate-y-1/2 z-40 bg-black/75 hover:bg-netflix-red text-white w-11 h-28 flex items-center justify-center rounded-r-lg border-y border-r border-zinc-700 shadow-2xl backdrop-blur">
-                    <i class="fa-solid fa-chevron-left text-lg"></i>
+            <div class="relative group">
+                <button onclick="slideRow('videos-container', -450)" class="slider-btn hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-40 bg-black/75 hover:bg-netflix-red text-white w-10 h-24 items-center justify-center rounded-r-lg border-y border-r border-zinc-700 shadow-2xl backdrop-blur">
+                    <i class="fa-solid fa-chevron-left text-base"></i>
                 </button>
                 
-                <div id="videos-container" class="scroll-container flex space-x-4 overflow-x-auto no-scrollbar pb-6 pt-2"></div>
+                <div id="videos-container" class="scroll-container flex space-x-3 md:space-x-4 overflow-x-auto no-scrollbar pb-4 pt-1 snap-x snap-mandatory"></div>
                 
-                <button onclick="slideRow('videos-container', 650)" class="slider-btn absolute right-0 top-1/2 -translate-y-1/2 z-40 bg-black/75 hover:bg-netflix-red text-white w-11 h-28 flex items-center justify-center rounded-l-lg border-y border-l border-zinc-700 shadow-2xl backdrop-blur">
-                    <i class="fa-solid fa-chevron-right text-lg"></i>
+                <button onclick="slideRow('videos-container', 450)" class="slider-btn hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-40 bg-black/75 hover:bg-netflix-red text-white w-10 h-24 items-center justify-center rounded-l-lg border-y border-l border-zinc-700 shadow-2xl backdrop-blur">
+                    <i class="fa-solid fa-chevron-right text-base"></i>
                 </button>
             </div>
         </section>
 
-        
+        <!-- BIRTHDAY FINALE & QR SECTION -->
+        <section id="finale-section" class="px-4 sm:px-8 md:px-16 py-4 md:py-8">
+            <div class="bg-gradient-to-br from-zinc-900 via-zinc-950 to-black border border-zinc-800 rounded-xl md:rounded-2xl p-5 sm:p-8 md:p-12 relative overflow-hidden shadow-2xl">
+                <div class="absolute -right-20 -top-20 w-64 md:w-96 h-64 md:h-96 bg-netflix-red/15 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center relative z-10">
+                    <div class="lg:col-span-2">
+                        <span class="bg-netflix-red text-white text-[10px] md:text-xs font-extrabold px-2.5 py-0.5 md:px-3 md:py-1 rounded-full uppercase tracking-wider">Season Finale</span>
+                        <h2 class="text-2xl sm:text-3xl md:text-5xl font-black mt-3 md:mt-4 mb-3 md:mb-5 leading-tight">HAPPY VALA BIRTHDAY PALAK ❤️</h2>
+                        <p class="text-zinc-300 text-xs sm:text-sm md:text-base leading-relaxed mb-6">
+                            MENE PHELE SOCHA ENGLISH ME LIKHTA HU PERR VIBE NHI AAYEGI THAT'S WHY 😂 WISHING U A VERYYYYY VERYYYYY HAPPYYYYY VALAAAAA BIRTHDAYYYYY MENE SOCHA NHI THA ITNA KUCH BUTT THODA BHOT KAR LIYA TERE LIYE BAAKI TU HAMESHAAA KHUSHHH RAHEE AUR AUR SADHA SUKHI RAHE BETII😁...GURU DAKSHINA NICHE QR DIYA HAI USPE KARNA OKIEE.
+                        </p>
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 md:gap-4">
+                            <button onclick="triggerConfetti()" class="w-full sm:w-auto bg-netflix-red hover:bg-netflix-darkRed text-white font-bold px-6 md:px-8 py-3 rounded-lg shadow-lg transition transform active:scale-95 flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-cake-candles text-sm"></i>
+                                <span class="text-sm md:text-base">CLICK KARKE KHUSH HOJAA</span>
+                            </button>
+                            <span class="text-zinc-400 text-xs md:text-sm font-medium">- AUR HAA DHYAN RAKHNA APNA BCOZ KOII HAI TERA VALA OKIEE.</span>
+                        </div>
+                    </div>
 
-        <!-- BIRTHDAY FINALE -->
-        <section id="finale-section" class="px-6 md:px-16 py-8">
-            <div class="bg-gradient-to-br from-zinc-900 via-zinc-950 to-black border border-zinc-800 rounded-2xl p-8 md:p-14 relative overflow-hidden shadow-2xl">
-                <div class="absolute -right-20 -top-20 w-96 h-96 bg-netflix-red/15 rounded-full blur-3xl pointer-events-none"></div>
-                <div class="max-w-3xl relative z-10">
-                    <span class="bg-netflix-red text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Season Finale</span>
-                    <h2 class="text-3xl md:text-5xl font-black mt-4 mb-6 leading-tight">HAPPY VALA BIRTHDAY PALAK ❤️</h2>
-                    <p class="text-zinc-300 text-base md:text-lg leading-relaxed mb-8">
-                        MENE PHELE SOCHA ENGLISH ME LIKHTA HU PERR VIBE NHI AAYEGI THAT'S WHY 😂 WISHING U A VERYYYYY VERYYYYY HAPPYYYYY VALAAAAA BIRTHDAYYYYY MENE SOCHA NHI THA ITNA KUCH BUTT THODA BHOT KAR LIYA TERE LIYE BAAKI TU HAMESHAAA KHUSHHH RAHEE AUR AUR SADHA SUKHI RAHE BETII😁...GURU DAKSHINA NICHE QR DIYA HAI USPE KARNA OKIEE.
-                    </p>
-                    <div class="flex flex-wrap items-center gap-4">
-                        <button onclick="triggerConfetti()" class="bg-netflix-red hover:bg-netflix-darkRed text-white font-bold px-8 py-3.5 rounded-lg shadow-lg transition transform hover:scale-105 active:scale-95 flex items-center space-x-2">
-                            <i class="fa-solid fa-cake-candles"></i>
-                            <span>CLICK KARKE KHUSH HOJAA </span>
-                        </button>
-                        <span class="text-zinc-400 text-sm font-medium"> - AUR HAA DHYAN RAKHNA APNA BCOZ KOII HAI TERA VALA OKIEE.</span>
+                    <!-- GURU DAKSHINA QR CARD -->
+                    <div class="flex flex-col items-center justify-center bg-zinc-900/90 border border-zinc-800 p-5 rounded-xl shadow-xl">
+                        <span class="text-xs uppercase font-bold text-netflix-red tracking-wider mb-2">Guru Dakshina Gateway</span>
+                        <div class="w-40 h-40 bg-white rounded-lg p-2.5 flex items-center justify-center shadow-inner">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=Happy+Birthday+Palak!" alt="Payment / Gift QR" class="w-full h-full object-contain">
+                        </div>
+                        <span class="text-[11px] text-zinc-400 mt-2.5 font-medium text-center">Tu Famous hai pata hai real fan hu na tera </span>
                     </div>
                 </div>
             </div>
@@ -243,32 +249,32 @@
     </main>
 
     <!-- EPISODE / PHOTO MODAL -->
-    <div id="episode-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md hidden overflow-y-auto">
-        <div id="modal-content" class="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden w-full max-w-[440px] max-h-[90vh] flex flex-col shadow-2xl transform transition-all scale-95 opacity-0 my-auto">
-            <div class="relative w-full h-[480px] bg-black shrink-0">
+    <div id="episode-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md hidden overflow-y-auto">
+        <div id="modal-content" class="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden w-full max-w-sm sm:max-w-md max-h-[90vh] flex flex-col shadow-2xl transform transition-all duration-200 scale-95 opacity-0 my-auto">
+            <div class="relative w-full h-64 sm:h-96 bg-black shrink-0">
                 <img id="modal-img" src="" alt="Episode Photo" class="w-full h-full object-contain">
                 <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-black/40 pointer-events-none"></div>
-                <button onclick="closeModal()" class="absolute top-4 right-4 bg-black/60 hover:bg-black text-white w-10 h-10 rounded-full flex items-center justify-center transition border border-zinc-700 z-10">
-                    <i class="fa-solid fa-xmark text-lg"></i>
+                <button onclick="closeModal()" class="absolute top-3 right-3 bg-black/70 hover:bg-black text-white w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center transition border border-zinc-700 z-10">
+                    <i class="fa-solid fa-xmark text-sm md:text-base"></i>
                 </button>
-                <div class="absolute bottom-4 left-6 pr-6">
-                    <span id="modal-episode-number" class="bg-netflix-red text-white text-xs font-bold px-2 py-0.5 rounded">Episode 1</span>
-                    <h3 id="modal-title" class="text-2xl font-black mt-1 line-clamp-1">Episode Title</h3>
+                <div class="absolute bottom-3 left-4 right-4">
+                    <span id="modal-episode-number" class="bg-netflix-red text-white text-[10px] md:text-xs font-bold px-2 py-0.5 rounded">Episode 1</span>
+                    <h3 id="modal-title" class="text-lg md:text-2xl font-black mt-1 line-clamp-1">Episode Title</h3>
                 </div>
             </div>
-            <div class="p-6 space-y-5 overflow-y-auto">
-                <p id="modal-description" class="text-zinc-300 text-sm leading-relaxed"></p>
+            <div class="p-4 sm:p-6 space-y-4 overflow-y-auto">
+                <p id="modal-description" class="text-zinc-300 text-xs sm:text-sm leading-relaxed"></p>
                 <div class="flex items-center justify-between pt-3 border-t border-zinc-800">
-                    <div class="flex items-center space-x-2 text-xs text-zinc-400">
+                    <div class="flex items-center space-x-1.5 text-xs text-zinc-400">
                         <i class="fa-solid fa-heart text-netflix-red"></i>
                         <span>Memory Vault</span>
                     </div>
-                    <div class="flex space-x-3">
-                        <button onclick="prevEpisode()" class="bg-zinc-800 hover:bg-zinc-700 px-4 py-2 rounded text-sm font-semibold transition flex items-center space-x-1">
-                            <i class="fa-solid fa-chevron-left text-xs"></i><span>Prev</span>
+                    <div class="flex space-x-2">
+                        <button onclick="prevEpisode()" class="bg-zinc-800 hover:bg-zinc-700 px-3 py-1.5 rounded text-xs md:text-sm font-semibold transition flex items-center space-x-1">
+                            <i class="fa-solid fa-chevron-left text-[10px]"></i><span>Prev</span>
                         </button>
-                        <button onclick="nextEpisode()" class="bg-zinc-800 hover:bg-zinc-700 px-4 py-2 rounded text-sm font-semibold transition flex items-center space-x-1">
-                            <span>Next</span><i class="fa-solid fa-chevron-right text-xs"></i>
+                        <button onclick="nextEpisode()" class="bg-zinc-800 hover:bg-zinc-700 px-3 py-1.5 rounded text-xs md:text-sm font-semibold transition flex items-center space-x-1">
+                            <span>Next</span><i class="fa-solid fa-chevron-right text-[10px]"></i>
                         </button>
                     </div>
                 </div>
@@ -277,35 +283,35 @@
     </div>
 
     <!-- VIDEO MODAL -->
-    <div id="video-player-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-lg hidden overflow-y-auto">
-        <div id="video-modal-content" class="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden w-full max-w-[460px] max-h-[92vh] flex flex-col shadow-2xl transform transition-all scale-95 opacity-0 my-auto">
+    <div id="video-player-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/90 backdrop-blur-lg hidden overflow-y-auto">
+        <div id="video-modal-content" class="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden w-full max-w-sm sm:max-w-md md:max-w-lg max-h-[92vh] flex flex-col shadow-2xl transform transition-all duration-200 scale-95 opacity-0 my-auto">
             <div class="relative w-full bg-black flex items-center justify-center shrink-0">
-                <video id="video-player" class="w-full max-h-[58vh] object-contain mx-auto" controls controlsList="nodownload" preload="metadata">
+                <video id="video-player" class="w-full max-h-[45vh] sm:max-h-[55vh] object-contain mx-auto" controls controlsList="nodownload" playsinline preload="metadata">
                     <source id="video-source" src="" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-                <button onclick="closeVideoModal()" class="absolute top-4 right-4 bg-black/70 hover:bg-black text-white w-10 h-10 rounded-full flex items-center justify-center transition border border-zinc-700 z-10">
-                    <i class="fa-solid fa-xmark text-lg"></i>
+                <button onclick="closeVideoModal()" class="absolute top-3 right-3 bg-black/70 hover:bg-black text-white w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center transition border border-zinc-700 z-10">
+                    <i class="fa-solid fa-xmark text-sm md:text-base"></i>
                 </button>
             </div>
-            <div class="p-6 space-y-4 overflow-y-auto">
-                <div class="flex items-center space-x-3">
-                    <span id="video-modal-badge" class="bg-netflix-red text-white text-xs font-bold px-2 py-0.5 rounded">Tape 1</span>
+            <div class="p-4 sm:p-6 space-y-3 sm:space-y-4 overflow-y-auto">
+                <div class="flex items-center space-x-2">
+                    <span id="video-modal-badge" class="bg-netflix-red text-white text-[10px] md:text-xs font-bold px-2 py-0.5 rounded">Tape 1</span>
                     <span id="video-modal-duration" class="text-xs text-zinc-400"></span>
                 </div>
-                <h3 id="video-modal-title" class="text-xl font-black">Video Title</h3>
-                <p id="video-modal-description" class="text-zinc-300 text-sm leading-relaxed"></p>
+                <h3 id="video-modal-title" class="text-base sm:text-xl font-black">Video Title</h3>
+                <p id="video-modal-description" class="text-zinc-300 text-xs sm:text-sm leading-relaxed"></p>
                 <div class="flex items-center justify-between pt-3 border-t border-zinc-800">
-                    <div class="flex items-center space-x-2 text-xs text-zinc-400">
+                    <div class="flex items-center space-x-1.5 text-xs text-zinc-400">
                         <i class="fa-solid fa-film text-netflix-red"></i>
                         <span>Palak Special Reel</span>
                     </div>
-                    <div class="flex space-x-3">
-                        <button onclick="prevVideo()" class="bg-zinc-800 hover:bg-zinc-700 px-4 py-2 rounded text-sm font-semibold transition flex items-center space-x-1">
-                            <i class="fa-solid fa-chevron-left text-xs"></i><span>Prev</span>
+                    <div class="flex space-x-2">
+                        <button onclick="prevVideo()" class="bg-zinc-800 hover:bg-zinc-700 px-3 py-1.5 rounded text-xs md:text-sm font-semibold transition flex items-center space-x-1">
+                            <i class="fa-solid fa-chevron-left text-[10px]"></i><span>Prev</span>
                         </button>
-                        <button onclick="nextVideo()" class="bg-zinc-800 hover:bg-zinc-700 px-4 py-2 rounded text-sm font-semibold transition flex items-center space-x-1">
-                            <span>Next</span><i class="fa-solid fa-chevron-right text-xs"></i>
+                        <button onclick="nextVideo()" class="bg-zinc-800 hover:bg-zinc-700 px-3 py-1.5 rounded text-xs md:text-sm font-semibold transition flex items-center space-x-1">
+                            <span>Next</span><i class="fa-solid fa-chevron-right text-[10px]"></i>
                         </button>
                     </div>
                 </div>
@@ -314,25 +320,14 @@
     </div>
 
     <!-- FOOTER -->
-    <footer class="border-t border-zinc-900 bg-black py-8 px-6 md:px-16 text-center text-zinc-500 text-xs space-y-3">
+    <footer class="border-t border-zinc-900 bg-black py-6 md:py-8 px-4 text-center text-zinc-500 text-xs">
         <p>Ollly💗</p>
-        <p></p>
     </footer>
 
-    <!-- ================================================================= -->
-    <!-- ⚙️ CUSTOM DATA & SCRIPTS SECTION                                  -->
-    <!-- ================================================================= -->
     <script>
-        // =================================================================
-        // 1. BRANDING & HERO PHOTOS
-        // =================================================================
         const PROFILE_AVATAR_IMAGE = "37.jpg";
         const HERO_PHOTO = "hero.jpg";
 
-        // =================================================================
-        // 2. 44 EPISODES / IMAGES EDIT SECTION
-        // Edit the "image", "title", "duration", or "description" for any item
-        // =================================================================
         const episodesData = [
             { id: 1,  title: "The Main Boss", duration: "25m", image: "1.jpg", description: "Introducing Palak Verma in her natural habitat: stealing the spotlight and running the show." },
             { id: 2,  title: "Chaos & Cuteness", duration: "30m", image: "2.jpg", description: "A thrilling documentary on how one person can be both the sweetest soul and an absolute menace to boredom." },
@@ -375,54 +370,45 @@
             { id: 40, title: "Sparkle & Chaos", duration: "27m", image: "40.jpg", description: "The beautiful mess of fun that follows Palak wherever she decides to go." },
             { id: 41, title: "Memories on Film", duration: "29m", image: "41.jpg", description: "Vintage vibes, film reel aesthetics, and nostalgia wrapped in golden tones." },
             { id: 42, title: "Endless Adventures", duration: "31m", image: "42.jpg", description: "Just when you think the adventure is over, another exciting chapter begins." },
-            { id: 43, title: "The Final Countdown", duration: "33m", image: "43.jpg", description: "Counting down the hours to the most anticipated birthday celebration of the year." },
-            
+            { id: 43, title: "The Final Countdown", duration: "33m", image: "43.jpg", description: "Counting down the hours to the most anticipated birthday celebration of the year." }
         ];
 
-        // =================================================================
-        // 3. 36 BONUS VIDEOS EDIT SECTION
-        // Edit the "video", "thumbnail", "title", "duration", or "badge"
-        // =================================================================
         const videosData = [
-            { id: 1,  title: "The Iconic Introduction", duration: "0:08", video: "1.mp4",  thumbnail: "../thumbnail/1.jpeg", description: "The moment Palak walks in and everything lights up. Pure cinematic energy.", badge: "Clip" },
-            { id: 2,  title: "Laugh Out Loud Reel", duration: "0:11", video: "2.mp4",  thumbnail: "../thumbnail/15.jpeg", description: "Unstoppable giggles and laugh attacks that got everyone smiling.", badge: "Reel" },
-            { id: 3,  title: "Adventure Montage", duration: "2:05", video: "3.mp4",  thumbnail: "../thumbnail/7.jpeg", description: "All the spontaneous trips compressed into one cinematic video reel.", badge: "Montage" },
-            { id: 4,  title: "Dance Floor Takeover", duration: "0:50", video: "4.mp4",  thumbnail: "../thumbnail/29.jpeg", description: "Owning the dance floor with moves that deserve their own viral trend.", badge: "Highlight" },
-            { id: 5,  title: "The Surprise Reaction", duration: "1:10", video: "../videos/5.mp4",  thumbnail: "../thumbnail/11.jpeg", description: "The priceless facial expression when Palak got completely surprised.", badge: "Exclusive" },
-            { id: 6,  title: "Foodie Chronicles", duration: "1:40", video: "../videos/6.mp4",  thumbnail: "../thumbnail/28.jpeg", description: "Documenting every delicious meal, café treat, and 'you must try this' bite.", badge: "Series" },
-            { id: 7,  title: "Behind The Scenes", duration: "2:00", video: "../videos/7.mp4",  thumbnail: "../thumbnail/25.jpeg", description: "What happens right before and after the camera starts rolling. Unfiltered fun.", badge: "BTS" },
-            { id: 8,  title: "Friendship Goals Reel", duration: "1:20", video: "../videos/8.mp4",  thumbnail: "../thumbnail/32.jpeg", description: "A special reel celebrating a one-of-a-kind bond that only gets stronger.", badge: "Reel" },
-            { id: 9, title: "Vibe Check Video", duration: "0:45", video: "../videos/10.mp4", thumbnail: "../thumbnail/2.jpeg", description: "Quick 45 seconds of pure aesthetic vibes and effortless cool.", badge: "Clip" },
-            { id: 10, title: "Spontaneous Madness", duration: "1:05", video: "../videos/11.mp4", thumbnail: "../thumbnail/22.jpeg", description: "When a simple 5-minute plan turns into a 3-hour wild adventure.", badge: "Story" },
-            { id: 11, title: "Laugh Until It Hurts", duration: "1:15", video: "../videos/14.mp4", thumbnail: "../thumbnail/12.jpeg", description: "Tears running down everyone's faces from laughing uncontrollably.", badge: "Clip" },
-            { id: 12, title: "Sunset Diaries", duration: "1:50", video: "../videos/15.mp4", thumbnail: "../thumbnail/13.jpeg", description: "Chasing evening horizons with serene views and relaxing acoustic music.", badge: "Vlog" },
-            { id: 13, title: "The Greatest Hits Reel", duration: "2:15", video: "../videos/16.mp4", thumbnail: "../thumbnail/6.jpeg", description: "A quick-fire mashup of top 10 best video moments ever recorded.", badge: "Highlights" },
-            { id: 14, title: "Candid Confessions", duration: "1:25", video: "../videos/18.mp4", thumbnail: "../thumbnail/3.jpeg", description: "Random thoughts, funny confessions, and deep late-night observations.", badge: "Talk" },
-            { id: 15, title: "Café Hopping Journey", duration: "1:40", video: "../videos/19.mp4", thumbnail: "../thumbnail/23.jpeg", description: "Sampling the finest coffee and pastries across our favorite local hangout spots.", badge: "Vlog" },
-            { id: 16, title: "Road Trip Beats", duration: "2:20", video: "../videos/20.mp4", thumbnail: "../thumbnail/24.jpeg", description: "Highway drives, scenic views, and passing the aux cord for legendary jams.", badge: "Music" },
-            { id: 17, title: "Unapologetically Palak", duration: "1:00", video: "../videos/21.mp4", thumbnail: "../thumbnail/31.jpeg", description: "Being 100% authentic, bold, fearless, and always speaking her mind.", badge: "Short" },
-            { id: 18, title: "Iconic Moments in 4K", duration: "1:15", video: "../videos/22.mp4", thumbnail: "../thumbnail/7.jpeg", description: "High-definition memory reel showing crisp details of the best times together.", badge: "4K HD" },
-            { id: 19, title: "That One Time We Did That", duration: "1:55", video: "../videos/23.mp4", thumbnail: "../thumbnail/14.jpeg", description: "A legendary story that we promised we would never forget.", badge: "Story" },
-            { id: 20, title: "Party Vibes", duration: "1:30", video: "../videos/24.mp4", thumbnail: "../thumbnail/32.jpeg", description: "Flashing lights, cheering friends, and celebrating life like there's no tomorrow.", badge: "Party" },
-            { id: 21, title: "Pure Energy", duration: "0:40", video: "../videos/25.mp4", thumbnail: "../thumbnail/27.jpeg", description: "Hyper mode activated! 40 seconds of unstoppable electricity and fun.", badge: "Clip" },
-            { id: 22, title: "Midnight Adventures", duration: "2:10", video: "../videos/26.mp4", thumbnail: "../thumbnail/4.jpeg", description: "Exploring empty streets under starlight with the best conversation partner.", badge: "Night" },
-            { id: 23, title: "Aesthetic Short Cut", duration: "0:35", video: "../videos/27.mp4", thumbnail: "../thumbnail/5.jpeg", description: "Quick edits, buttery transitions, and picture-perfect color grading.", badge: "Edit" },
-            { id: 24, title: "Unscripted Joy", duration: "1:20", video: "../videos/28.mp4", thumbnail: "../thumbnail/26.jpeg", description: "Spontaneous moments that weren't rehearsed or staged, just honest smiles.", badge: "Real" },
-            { id: 25, title: "Sassy & Classy", duration: "0:50", video: "../videos/29.mp4", thumbnail: "../thumbnail/20.jpeg", description: "Delivering world-class witty responses with absolute elegance.", badge: "Icon" },
-            { id: 26, title: "Favorite Soundtracks", duration: "1:45", video: "../videos/30.mp4", thumbnail: "../thumbnail/16.jpeg", description: "A montage synced perfectly with the songs that defined this season.", badge: "Music" },
-            { id: 27, title: "Flashback Tape", duration: "2:00", video: "../videos/31.mp4", thumbnail: "../thumbnail/21.jpeg", description: "Looking back at clips from day one and realizing how far we've come.", badge: "Throwback" },
-            { id: 28, title: "The Cinematic Reel", duration: "2:40", video: "../videos/33.mp4", thumbnail: "../thumbnail/8.jpeg", description: "Movie-trailer style documentary edit starring the birthday girl herself.", badge: "Cinema" },
-            { id: 29, title: "Heart to Heart", duration: "2:15", video: "../videos/34.mp4", thumbnail: "../thumbnail/18.jpeg", description: "A touching collection of words, appreciation, and heartfelt messages.", badge: "Love" },
-            { id: 30, title: "Pre-Birthday Hype", duration: "1:30", video: "../videos/35.mp4", thumbnail: "../thumbnail/10.jpeg", description: "Getting hyped for the main event! The celebrations are officially underway.", badge: "Hype" },
-            { id: 31, title: "The Grand Finale Message", duration: "3:15", video: "../videos/36.mp4", thumbnail: "../thumbnail/19.jpeg", description: "The final tape — a heartfelt happy birthday message wishing for an unbelievable year ahead.", badge: "Special" }
+            { id: 1,  title: "The Iconic Introduction", duration: "0:08", video: "1.mp4", thumbnail: "t1.jpeg", description: "The moment Palak walks in and everything lights up. Pure cinematic energy.", badge: "Clip" },
+            { id: 2,  title: "Laugh Out Loud Reel", duration: "0:11", video: "2.mp4", thumbnail: "t15.jpeg", description: "Unstoppable giggles and laugh attacks that got everyone smiling.", badge: "Reel" },
+            { id: 3,  title: "Adventure Montage", duration: "2:05", video: "3.mp4", thumbnail: "t7.jpeg", description: "All the spontaneous trips compressed into one cinematic video reel.", badge: "Montage" },
+            { id: 4,  title: "Dance Floor Takeover", duration: "0:50", video: "4.mp4", thumbnail: "t29.jpeg", description: "Owning the dance floor with moves that deserve their own viral trend.", badge: "Highlight" },
+            { id: 5,  title: "The Surprise Reaction", duration: "1:10", video: "5.mp4", thumbnail: "t11.jpeg", description: "The priceless facial expression when Palak got completely surprised.", badge: "Exclusive" },
+            { id: 6,  title: "Foodie Chronicles", duration: "1:40", video: "6.mp4", thumbnail: "t28.jpeg", description: "Documenting every delicious meal, café treat, and 'you must try this' bite.", badge: "Series" },
+            { id: 7,  title: "Behind The Scenes", duration: "2:00", video: "7.mp4", thumbnail: "t25.jpeg", description: "What happens right before and after the camera starts rolling. Unfiltered fun.", badge: "BTS" },
+            { id: 8,  title: "Friendship Goals Reel", duration: "1:20", video: "8.mp4", thumbnail: "t32.jpeg", description: "A special reel celebrating a one-of-a-kind bond that only gets stronger.", badge: "Reel" },
+            { id: 9,  title: "Vibe Check Video", duration: "0:45", video: "10.mp4", thumbnail: "t2.jpeg", description: "Quick 45 seconds of pure aesthetic vibes and effortless cool.", badge: "Clip" },
+            { id: 10, title: "Spontaneous Madness", duration: "1:05", video: "11.mp4", thumbnail: "t22.jpeg", description: "When a simple 5-minute plan turns into a 3-hour wild adventure.", badge: "Story" },
+            { id: 11, title: "Laugh Until It Hurts", duration: "1:15", video: "14.mp4", thumbnail: "t12.jpeg", description: "Tears running down everyone's faces from laughing uncontrollably.", badge: "Clip" },
+            { id: 12, title: "Sunset Diaries", duration: "1:50", video: "15.mp4", thumbnail: "t13.jpeg", description: "Chasing evening horizons with serene views and relaxing acoustic music.", badge: "Vlog" },
+            { id: 13, title: "The Greatest Hits Reel", duration: "2:15", video: "16.mp4", thumbnail: "t6.jpeg", description: "A quick-fire mashup of top 10 best video moments ever recorded.", badge: "Highlights" },
+            { id: 14, title: "Candid Confessions", duration: "1:25", video: "18.mp4", thumbnail: "t3.jpeg", description: "Random thoughts, funny confessions, and deep late-night observations.", badge: "Talk" },
+            { id: 15, title: "Café Hopping Journey", duration: "1:40", video: "19.mp4", thumbnail: "t23.jpeg", description: "Sampling the finest coffee and pastries across our favorite local hangout spots.", badge: "Vlog" },
+            { id: 16, title: "Road Trip Beats", duration: "2:20", video: "20.mp4", thumbnail: "t24.jpeg", description: "Highway drives, scenic views, and passing the aux cord for legendary jams.", badge: "Music" },
+            { id: 17, title: "Unapologetically Palak", duration: "1:00", video: "21.mp4", thumbnail: "t31.jpeg", description: "Being 100% authentic, bold, fearless, and always speaking her mind.", badge: "Short" },
+            { id: 18, title: "Iconic Moments in 4K", duration: "1:15", video: "22.mp4", thumbnail: "t7.jpeg", description: "High-definition memory reel showing crisp details of the best times together.", badge: "4K HD" },
+            { id: 19, title: "That One Time We Did That", duration: "1:55", video: "23.mp4", thumbnail: "t14.jpeg", description: "A legendary story that we promised we would never forget.", badge: "Story" },
+            { id: 20, title: "Party Vibes", duration: "1:30", video: "24.mp4", thumbnail: "t32.jpeg", description: "Flashing lights, cheering friends, and celebrating life like there's no tomorrow.", badge: "Party" },
+            { id: 21, title: "Pure Energy", duration: "0:40", video: "25.mp4", thumbnail: "t27.jpeg", description: "Hyper mode activated! 40 seconds of unstoppable electricity and fun.", badge: "Clip" },
+            { id: 22, title: "Midnight Adventures", duration: "2:10", video: "26.mp4", thumbnail: "t4.jpeg", description: "Exploring empty streets under starlight with the best conversation partner.", badge: "Night" },
+            { id: 23, title: "Aesthetic Short Cut", duration: "0:35", video: "27.mp4", thumbnail: "t5.jpeg", description: "Quick edits, buttery transitions, and picture-perfect color grading.", badge: "Edit" },
+            { id: 24, title: "Unscripted Joy", duration: "1:20", video: "28.mp4", thumbnail: "t26.jpeg", description: "Spontaneous moments that weren't rehearsed or staged, just honest smiles.", badge: "Real" },
+            { id: 25, title: "Sassy & Classy", duration: "0:50", video: "29.mp4", thumbnail: "t20.jpeg", description: "Delivering world-class witty responses with absolute elegance.", badge: "Icon" },
+            { id: 26, title: "Favorite Soundtracks", duration: "1:45", video: "30.mp4", thumbnail: "t16.jpeg", description: "A montage synced perfectly with the songs that defined this season.", badge: "Music" },
+            { id: 27, title: "Flashback Tape", duration: "2:00", video: "31.mp4", thumbnail: "t21.jpeg", description: "Looking back at clips from day one and realizing how far we've come.", badge: "Throwback" },
+            { id: 28, title: "The Cinematic Reel", duration: "2:40", video: "33.mp4", thumbnail: "t8.jpeg", description: "Movie-trailer style documentary edit starring the birthday girl herself.", badge: "Cinema" },
+            { id: 29, title: "Heart to Heart", duration: "2:15", video: "34.mp4", thumbnail: "t18.jpeg", description: "A touching collection of words, appreciation, and heartfelt messages.", badge: "Love" },
+            { id: 30, title: "Pre-Birthday Hype", duration: "1:30", video: "35.mp4", thumbnail: "t10.jpeg", description: "Getting hyped for the main event! The celebrations are officially underway.", badge: "Hype" },
+            { id: 31, title: "The Grand Finale Message", duration: "3:15", video: "36.mp4", thumbnail: "t19.jpeg", description: "The final tape — a heartfelt happy birthday message wishing for an unbelievable year ahead.", badge: "Special" }
         ];
 
-        // =================================================================
-        // 5. ENGINE LOGIC & SLIDERS
-        // =================================================================
         let currentEpisodeIndex = 0;
         let currentVideoIndex = 0;
-        let audioCtx = null;
         let myListAdded = false;
 
         document.addEventListener("DOMContentLoaded", () => {
@@ -432,7 +418,6 @@
 
             renderEpisodes();
             renderVideos();
-            renderRecommendations();
         });
 
         function slideRow(containerId, offset) {
@@ -441,50 +426,26 @@
         }
 
         function selectProfile() {
-            playTudumSound();
             const introScreen = document.getElementById("intro-screen");
             introScreen.style.opacity = "0";
-            introScreen.style.transform = "scale(1.08)";
+            introScreen.style.transform = "scale(1.05)";
             setTimeout(() => {
                 introScreen.style.display = "none";
             }, 700);
         }
 
-        function playTudumSound() {
-            try {
-                const AudioContext = window.AudioContext || window.webkitAudioContext;
-                if (!AudioContext) return;
-                audioCtx = new AudioContext();
-                if (audioCtx.state === 'suspended') audioCtx.resume();
-                const now = audioCtx.currentTime;
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-                osc.type = 'sawtooth';
-                osc.frequency.setValueAtTime(115, now);
-                osc.frequency.exponentialRampToValueAtTime(45, now + 0.65);
-                gain.gain.setValueAtTime(0.7, now);
-                gain.gain.exponentialRampToValueAtTime(0.001, now + 1.4);
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-                osc.start(now);
-                osc.stop(now + 1.4);
-            } catch (e) {
-                console.log("Autoplay bypass:", e);
-            }
-        }
-
         function renderEpisodes() {
             const container = document.getElementById("episodes-container");
             container.innerHTML = episodesData.map((ep, index) => `
-                <div onclick="openModal(${index})" class="netflix-card flex-shrink-0 bg-zinc-900 rounded-lg overflow-hidden cursor-pointer border border-zinc-800 w-[210px]">
-                    <div class="relative w-full h-[340px] bg-zinc-950">
+                <div onclick="openModal(${index})" class="netflix-card flex-shrink-0 bg-zinc-900 rounded-md md:rounded-lg overflow-hidden cursor-pointer border border-zinc-800 w-[145px] sm:w-[180px] md:w-[215px] snap-start">
+                    <div class="relative w-full h-[220px] sm:h-[280px] md:h-[325px] bg-zinc-950">
                         <img src="${ep.image}" alt="${ep.title}" class="w-full h-full object-cover object-top" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=720'">
-                        <div class="absolute bottom-2 right-2 bg-black/80 px-2 py-0.5 rounded text-xs font-semibold">${ep.duration}</div>
-                        <div class="absolute top-2 left-2 bg-netflix-red text-white text-[10px] font-black px-1.5 py-0.5 rounded uppercase">EP ${ep.id}</div>
+                        <div class="absolute bottom-2 right-2 bg-black/80 px-1.5 py-0.5 rounded text-[10px] md:text-xs font-semibold">${ep.duration}</div>
+                        <div class="absolute top-2 left-2 bg-netflix-red text-white text-[9px] md:text-[10px] font-black px-1.5 py-0.5 rounded uppercase">EP ${ep.id}</div>
                     </div>
-                    <div class="p-3.5">
-                        <h3 class="font-bold text-sm mb-1 truncate">${ep.id}. ${ep.title}</h3>
-                        <p class="text-[11px] text-zinc-400 line-clamp-2 leading-relaxed">${ep.description}</p>
+                    <div class="p-2.5 md:p-3.5">
+                        <h3 class="font-bold text-xs md:text-sm mb-1 truncate">${ep.id}. ${ep.title}</h3>
+                        <p class="text-[10px] md:text-[11px] text-zinc-400 line-clamp-2 leading-tight md:leading-relaxed">${ep.description}</p>
                     </div>
                 </div>
             `).join('');
@@ -493,39 +454,23 @@
         function renderVideos() {
             const container = document.getElementById("videos-container");
             container.innerHTML = videosData.map((vid, index) => `
-                <div onclick="openVideoModal(${index})" class="netflix-card video-card flex-shrink-0 bg-zinc-900 rounded-lg overflow-hidden cursor-pointer border border-zinc-800 w-[210px]">
-                    <div class="relative w-full h-[340px] bg-zinc-950">
-                        <img src="${vid.thumbnail}" alt="${vid.title}" class="w-full h-full object-cover object-top" loading="lazy">
-                        <div class="play-overlay absolute inset-0 bg-black/45 flex items-center justify-center">
-                            <div class="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center shadow-xl transform transition hover:scale-110">
-                                <i class="fa-solid fa-play text-black text-base ml-0.5"></i>
+                <div onclick="openVideoModal(${index})" class="netflix-card video-card flex-shrink-0 bg-zinc-900 rounded-md md:rounded-lg overflow-hidden cursor-pointer border border-zinc-800 w-[145px] sm:w-[180px] md:w-[215px] snap-start">
+                    <div class="relative w-full h-[220px] sm:h-[280px] md:h-[325px] bg-zinc-950">
+                        <img src="${vid.thumbnail}" alt="${vid.title}" class="w-full h-full object-cover object-top" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=720'">
+                        <div class="play-overlay absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <div class="w-9 h-9 md:w-12 md:h-12 rounded-full bg-white/90 flex items-center justify-center shadow-xl">
+                                <i class="fa-solid fa-play text-black text-xs md:text-base ml-0.5"></i>
                             </div>
                         </div>
-                        <div class="absolute bottom-2 right-2 bg-black/80 px-2 py-0.5 rounded text-xs font-semibold flex items-center space-x-1">
-                            <i class="fa-solid fa-clock text-[9px] text-zinc-400"></i>
+                        <div class="absolute bottom-2 right-2 bg-black/80 px-1.5 py-0.5 rounded text-[10px] md:text-xs font-semibold flex items-center space-x-1">
+                            <i class="fa-solid fa-clock text-[8px] md:text-[9px] text-zinc-400"></i>
                             <span>${vid.duration}</span>
                         </div>
-                        <div class="absolute top-2 left-2 bg-netflix-red text-white text-[10px] font-black px-1.5 py-0.5 rounded uppercase">${vid.badge}</div>
+                        <div class="absolute top-2 left-2 bg-netflix-red text-white text-[9px] md:text-[10px] font-black px-1.5 py-0.5 rounded uppercase">${vid.badge}</div>
                     </div>
-                    <div class="p-3.5">
-                        <h3 class="font-bold text-sm mb-1 truncate">${vid.id}. ${vid.title}</h3>
-                        <p class="text-[11px] text-zinc-400 line-clamp-2 leading-relaxed">${vid.description}</p>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function renderRecommendations() {
-            const container = document.getElementById("recommendations-container");
-            container.innerHTML = recommendationsData.map((rec) => `
-                <div class="netflix-card flex-shrink-0 bg-zinc-900 rounded-lg overflow-hidden cursor-pointer border border-zinc-800 w-[200px]">
-                    <div class="relative w-full h-[310px]">
-                        <img src="${rec.image}" alt="${rec.title}" class="w-full h-full object-cover object-top" loading="lazy">
-                        <div class="absolute top-2 left-2 bg-zinc-900/90 text-netflix-red text-[10px] font-bold px-2 py-0.5 rounded border border-zinc-700">${rec.badge}</div>
-                    </div>
-                    <div class="p-3">
-                        <h4 class="font-bold text-xs mb-1 line-clamp-1">${rec.title}</h4>
-                        <span class="text-xs text-green-400 font-semibold">${rec.match}</span>
+                    <div class="p-2.5 md:p-3.5">
+                        <h3 class="font-bold text-xs md:text-sm mb-1 truncate">${vid.id}. ${vid.title}</h3>
+                        <p class="text-[10px] md:text-[11px] text-zinc-400 line-clamp-2 leading-tight md:leading-relaxed">${vid.description}</p>
                     </div>
                 </div>
             `).join('');
@@ -612,24 +557,24 @@
             myListAdded = !myListAdded;
             const icon = document.getElementById("my-list-icon");
             if (myListAdded) {
-                icon.className = "fa-solid fa-check text-green-400";
+                icon.className = "fa-solid fa-check text-green-400 text-xs md:text-sm";
                 showToast("Added to My List!");
             } else {
-                icon.className = "fa-solid fa-plus";
+                icon.className = "fa-solid fa-plus text-xs md:text-sm";
                 showToast("Removed from My List");
             }
         }
 
         function showToast(message) {
             const toast = document.createElement("div");
-            toast.className = "fixed bottom-8 right-8 z-50 bg-zinc-900 border border-zinc-700 text-white px-5 py-3 rounded-lg shadow-2xl text-sm font-semibold flex items-center space-x-2";
+            toast.className = "fixed bottom-5 right-5 sm:bottom-8 sm:right-8 z-50 bg-zinc-900 border border-zinc-700 text-white px-4 py-2.5 sm:px-5 sm:py-3 rounded-lg shadow-2xl text-xs sm:text-sm font-semibold flex items-center space-x-2";
             toast.innerHTML = `<i class="fa-solid fa-bell text-netflix-red"></i><span>${message}</span>`;
             document.body.appendChild(toast);
             setTimeout(() => toast.remove(), 2500);
         }
 
         function triggerConfetti() {
-            confetti({ particleCount: 180, spread: 90, origin: { y: 0.6 }, colors: ['#E50914', '#ffffff', '#ff4d4f', '#ffd700'] });
+            confetti({ particleCount: 130, spread: 75, origin: { y: 0.6 }, colors: ['#E50914', '#ffffff', '#ff4d4f', '#ffd700'] });
         }
 
         document.getElementById("episode-modal").addEventListener("click", (e) => {
@@ -643,6 +588,12 @@
             if (e.key === "Escape") {
                 closeModal();
                 closeVideoModal();
+            } else if (e.key === "ArrowRight") {
+                if (!document.getElementById("episode-modal").classList.contains("hidden")) nextEpisode();
+                if (!document.getElementById("video-player-modal").classList.contains("hidden")) nextVideo();
+            } else if (e.key === "ArrowLeft") {
+                if (!document.getElementById("episode-modal").classList.contains("hidden")) prevEpisode();
+                if (!document.getElementById("video-player-modal").classList.contains("hidden")) prevVideo();
             }
         });
     </script>
